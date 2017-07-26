@@ -1,0 +1,210 @@
+<style type="text/css">
+.red1{
+background:#f00;
+height: 100%;
+}
+
+.yellow1{
+background:#ff0;
+height: 100%;
+}
+
+.green1{
+background:#0F0;  
+height: 100%;
+}
+
+.slidebox1{
+  height: 200px;
+}
+
+.atag{
+  text-decoration: none;
+  color:#888;
+}
+
+img{
+  max-width: 100%;
+}
+
+.green2{
+background: #406325;
+}
+
+.cls_fp
+{
+  text-decoration: none;
+  color:#406325;
+}
+
+.orange2{
+border-color:#e4941b !important;
+background:#f9a11c !important;
+}
+
+.card img{
+ box-shadow: 0 2px 5px 0 rgba(240,210,172,.26);
+ background: #f0d2ac;
+ padding:5px;
+ border:2px solid #fff;
+}
+
+h2{
+color:#406325;
+line-height: 20px;
+}
+
+
+h3{
+color:#406325;
+line-height: 20px;
+}
+
+
+.card .item.item-avatar{
+  min-height: 0px
+}
+
+.button.button-balanced{
+  background-color: #659048;
+  border-color: #567d3e;
+}
+
+
+
+
+.grid-card{
+  box-shadow: 0 0px 5px 0 rgba(0,0,0,.26);
+  max-width: 45% !important;
+  margin: auto;
+  margin-left: 10px;
+  margin-bottom: 15px;
+}
+
+.grid-card .item{
+  border-style: none;
+}
+
+.grid-card .item .h2{
+  font-size: 19px;
+}
+
+.gallery {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+
+</style>
+<ion-view view-title="">
+    <ion-nav-title>{{ 'MERY' | translate }} {{ 'CROPS' | translate }}</ion-nav-title>
+    <walkthrough
+            wid="Demo1"
+            walkthrough-type="transparency"
+            focus-element-selector="#fab"
+            icon="arrow"
+            main-caption="{{demoCaption1}}"
+            icon-padding-left="0"
+            icon-padding-top="0"
+            on-walkthrough-hide = "nextStep(2)"
+            force-caption-location="TOP"
+            is-active="demoActive1"
+            is-round="true"
+            use-button="true"
+            button-caption="Next">
+      </walkthrough>
+ 
+      <walkthrough
+            wid="Demo2"
+            walkthrough-type="transparency"
+            focus-element-selector="#farm_1"
+            icon="single_tap"
+            main-caption="{{demoCaption2}}"
+            icon-padding-left="0"
+            icon-padding-top="0"
+            on-walkthrough-hide = "nextStep(3)"
+            force-caption-location="BOTTOM"
+            is-active="demoActive2"
+            use-button="true"
+            button-caption="Next"
+            >
+      </walkthrough>
+
+      <walkthrough
+            wid="Demo3"
+            walkthrough-type="transparency"
+            focus-element-selector="#farm_2"
+            icon="arrow"
+            main-caption="{{demoCaption3}}"
+            icon-padding-left="10"
+            icon-padding-top="0"
+            on-walkthrough-hide = "nextStep(4)"
+            force-caption-location="BOTTOM"
+            is-active="demoActive3"
+            use-button="true"
+            button-caption="Next"
+            is-round="true">
+      </walkthrough>
+
+      
+    <ion-content>
+        <!-- <ion-list>
+            <div class="row">
+                    <div class="col">
+                         <ion-radio ng-model="choice" ng-value="'Kharif'">{{ 'SEASON1' | translate }}</ion-radio>
+                    </div>
+                    <div class="col">
+                          <ion-radio ng-model="choice" ng-value="'Rabi'">{{ 'SEASON2' | translate }}</ion-radio>
+                    </div>
+            </div>
+        </ion-list> -->
+
+
+<!-- LIST VIEW ============================================================== -->
+        <ion-refresher on-refresh="doRefresh()">        
+        </ion-refresher>
+        <h3 class="padding" ng-if="farms != ''"> Select Farm</h3>
+        <div class="list">
+            <div class="card" ng-repeat="farm in farms" id="farm_1">
+                
+                <div class="row no-padding">
+                    <div class="col col-80 no-padding"  >
+                        <a class="item" ng-click="goto_cropList('{{farm.name}}','{{farm.district}}');" >
+                          <h2>{{farm.name}}</h2>
+                          <p>{{farm.extent}} {{ farm.extent_type }}</p>
+                          <p>{{farm.district}}</p>
+                        </a>
+                    </div>
+                    <div id="farm_2" class="col col-center col-20 padding text-center" ng-click="show({{farm.id}},'{{ 'MODIFYFARM' | translate }}','{{ 'EDIT' | translate }}','{{ 'DELETE' | translate }}','{{ 'CANCEL' | translate }}')"><i style="font-size: 30px;" class="icon ion-android-more-horizontal"></i></div>
+                </div>
+                
+            </div> 
+        </div>
+
+
+<!-- GRID VIEW ============================================================== -->
+        <!-- <h3 class="padding"> Select Farm</h3>
+        <div class="row gallery">
+            <div class=" grid-card col col-50" ng-repeat="farm in farms ">
+                
+                <div class="row no-padding">
+                    <div class="col col-80 no-padding">
+                        <a class="item" ng-click="goto_cropList('{{farm.name}}','{{farm.district}}');">
+                          <h2>{{farm.name}}</h2>
+                          <p>{{farm.extent}} {{ farm.extent_type }}</p>
+                          <p>{{farm.district}}</p>
+                        </a>
+                    </div>
+                    <div class="col col-center col-20 text-center" ng-click="show({{farm.id}},'{{ 'MODIFYFARM' | translate }}','{{ 'EDIT' | translate }}','{{ 'DELETE' | translate }}','{{ 'CANCEL' | translate }}')"><i style="font-size: 30px;" class="icon ion-android-more-horizontal"></i></div>
+                </div>
+                
+            </div> 
+        </div> -->
+
+        
+     </ion-content>
+     <button id="fab" class="button button-balanced button-fab button-fab-bottom-right" ng-click="goto_addfarm()">
+            <i class="icon ion-plus"></i>
+     </button> 
+</ion-view>
+

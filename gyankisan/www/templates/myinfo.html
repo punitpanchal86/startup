@@ -1,0 +1,293 @@
+<style type="text/css">
+.red1{
+background:#f00;
+height: 100%;
+}
+
+.yellow1{
+background:#ff0;
+height: 100%;
+}
+
+.green1{
+background:#0F0;  
+height: 100%;
+}
+
+.slidebox1{
+  height: 200px;
+}
+
+.atag{
+  text-decoration: none;
+  color:#888;
+}
+
+img{
+  max-width: 100%;
+}
+
+.green2{
+background: #406325;
+}
+
+.cls_fp
+{
+  text-decoration: none;
+  color:#406325;
+}
+
+.orange2{
+border-color:#e4941b !important;
+background:#f9a11c !important;
+}
+
+.card img{
+ box-shadow: 0 2px 5px 0 rgba(240,210,172,.26);
+ padding:5px;
+ border:2px solid #fff;
+}
+
+h2{
+color:#406325;
+line-height: 20px;
+font-weight: bold !important;
+}
+
+
+.card .item.item-avatar{
+  min-height: 0px
+}
+
+.my-custom-label{
+    padding-top: 44px;
+    padding-bottom: 7px;
+    color: #989898;
+}
+
+</style>
+<ion-view view-title="">
+    <ion-nav-title>{{ 'My Information' | translate }}</ion-nav-title>
+    <ion-content>
+        <div class="card">
+          <!-- <img src="img/gyan-kisan-icons-01.png"> -->
+          <div class="item item-text-wrap">
+            <form name="frm_farmer" ng-submit="submit_myinfo(myinfo)">
+
+                <!-- <label class="item item-input item-floating-label">
+                    <span class="input-label">{{ 'AADHAR_NUMBER' | translate }}</span>
+                    <input type="text" name="adhar_no" ng-model="myinfo.aadhaar_number"
+                        ui-mask="9999-9999-9999" 
+                        placeholder="{{ 'AADHAR_NUMBER_PH' | translate }}" 
+                        class="form-control" 
+                        ng-class="{requiredControl:frm_farmer.adhar_no.$dirty && frm_farmer.adhar_no.$invalid}" 
+                        ui-mask-placeholder-char="_" 
+                        ui-mask-placeholder 
+                        ui-options="{clearOnBlur:false}" 
+                        ng-required="true" />
+                </label>            
+                <div ng-messages="frm_farmer.adhar_no.$error" role="alert" ng-if="frm_farmer.adhar_no.$dirty">
+                    <div class="assertive" ng-message="required">Aadhar number is required.</div>
+                    <div class="assertive" ng-message="mask">Length should be 12.</div>
+                </div>
+
+
+
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">{{ 'FARMER_NAME' | translate }}</span>
+                    <input type="text" name="farmer_name" ng-model="myinfo.name"
+                        placeholder="{{ 'FARMER_NAME_PH' | translate }}" 
+                        class="form-control"
+                        ng-class="{requiredControl:frm_farmer.farmer_name.$dirty && frm_farmer.farmer_name.$invalid}" 
+                        ng-required="true",
+                        ng-minlength="6",
+                        ng-maxlength="30"
+
+                        />
+                </label>            
+                <div ng-messages="frm_farmer.farmer_name.$error" role="alert" ng-if="frm_farmer.farmer_name.$dirty">
+                    <div class="assertive" ng-message="required">Farmer is required.</div>
+                    <div class="assertive" ng-message="minlength">Length should be greater or equal to 6.</div>
+                    <div class="assertive" ng-message="maxlength">Length should be smaller or equal to 30.</div>
+                </div>
+                
+
+
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">{{ 'ADDRESS' | translate }}</span>
+                    <input type="text" name="address" ng-model="myinfo.address"
+                        placeholder="{{ 'ADDRESS_PH' | translate }}" 
+                        class="form-control"
+                        ng-class="{requiredControl:frm_farmer.address.$dirty && frm_farmer.address.$invalid}" 
+                        ng-required="true",
+                        ng-minlength="6",
+                        ng-maxlength="100" />
+                </label>
+                <div ng-messages="frm_farmer.address.$error" role="alert" ng-if="frm_farmer.address.$dirty">
+                    <div class="assertive" ng-message="required">Address is required.</div>
+                    <div class="assertive" ng-message="minlength">Length should be smaller than or equal to 6.</div>
+                    <div class="assertive" ng-message="maxlength">Length should be greater than or equal to 100.</div>
+                </div>
+
+
+
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">{{ 'phone' | translate }}</span>
+                    <input type="text" name="phonenumber" ng-model="myinfo.phone"
+                        ui-mask="999-999-9999"
+                        placeholder="{{ 'MOBILE_NUMBER' | translate }}" 
+                        ui-mask-placeholder 
+                        ui-mask-placeholder-char="_" 
+                        class="form-control" 
+                        ng-class="{requiredControl:frm_farmer.phonenumber.$dirty && frm_farmer.phonenumber.$invalid}" 
+                        ng-required="true"  
+                        ui-options="{clearOnBlur:false}" />
+                </label>
+                <div ng-messages="frm_farmer.phonenumber.$error" role="alert" ng-if="frm_farmer.phonenumber.$dirty">
+                    <div class="assertive" ng-message="required">Phone is required.</div>
+                    <div class="assertive" ng-message="mask">Length should be 10.</div>
+                </div>
+
+
+                <label class=" item-floating-label">
+                    <div class="my-custom-label">{{ 'Gender' | translate }}</div>
+                    <ion-radio name="gender" ng-model="myinfo.gender" ng-value="'Male'" ng-required="true">{{ 'Male' | translate }}</ion-radio>
+                    <ion-radio name="gender" ng-model="myinfo.gender" ng-value="'Female'" ng-required="true">{{ 'Female' | translate }}</ion-radio>
+                </label>
+                <div ng-messages="frm_farmer.gender.$error" role="alert" ng-if="frm_farmer.gender.$dirty">
+                    <div class="assertive" ng-message="required">Phone type is required.</div>
+                </div>
+
+
+                <button type="submit" ng-disabled=" frm_farmer.adhar_no.$invalid    || 
+                                                    frm_farmer.farmer_name.$invalid ||
+                                                    frm_farmer.address.$invalid     || 
+                                                    frm_farmer.phonenumber.$invalid || 
+                                                    frm_farmer.gender.$invalid "     class="button button-block button-calm ink" >
+
+                    {{ "Submit" | translate }}
+                </button> -->
+            
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">{{ 'AADHAR_NUMBER' | translate }}</span>
+                    <input type="text" name="adhar_no" ng-model="myinfo.aadhaar_number"
+                        ui-mask="9999-9999-9999" 
+                        placeholder="{{ 'AADHAR_NUMBER_PH' | translate }}" 
+                        class="form-control" 
+                        ng-class="{requiredControl:frm_farmer.adhar_no.$dirty && frm_farmer.adhar_no.$invalid}" 
+                        ui-mask-placeholder-char="_" 
+                        ui-mask-placeholder 
+                        ui-options="{clearOnBlur:false}" 
+                        ng-required="true" />
+                </label>            
+                <div ng-messages="frm_farmer.adhar_no.$error" role="alert" ng-if="frm_farmer.adhar_no.$dirty">
+                    <div class="assertive" ng-message="required">Aadhar number is required.</div>
+                    <div class="assertive" ng-message="mask">Length should be 10.</div>
+                </div>
+
+
+
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">{{ 'FARMER_NAME' | translate }}</span>
+                    <input type="text" name="farmer_name" ng-model="myinfo.name"
+                        placeholder="{{ 'FARMER_NAME_PH' | translate }}" 
+                        class="form-control"
+                        ng-class="{requiredControl:frm_farmer.farmer_name.$dirty && frm_farmer.farmer_name.$invalid}" 
+                        ng-required="true",
+                        ng-minlength="6",
+                        ng-maxlength="30"
+
+                        />
+                </label>            
+                <div ng-messages="frm_farmer.farmer_name.$error" role="alert" ng-if="frm_farmer.farmer_name.$dirty">
+                    <div class="assertive" ng-message="required">Farmer is required.</div>
+                    <div class="assertive" ng-message="minlength">Length should be greater than or equal to 6.</div>
+                    <div class="assertive" ng-message="maxlength">Length should be smaller than or equal to 30.</div>
+                </div>
+                
+
+                <label class=" item-floating-label">
+                    <div class="my-custom-label">{{ 'Gender' | translate }}</div>
+                    <ion-radio name="gender" ng-model="myinfo.gender" ng-value="'Male'" ng-required="true">{{ 'Male' | translate }}</ion-radio>
+                    <ion-radio name="gender" ng-model="myinfo.gender" ng-value="'Female'" ng-required="true">{{ 'Female' | translate }}</ion-radio>
+                </label>
+                <div ng-messages="frm_farmer.gender.$error" role="alert" ng-if="frm_farmer.gender.$dirty">
+                    <div class="assertive" ng-message="required">Phone type is required.</div>
+                </div>
+
+
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">{{ 'ADDRESS' | translate }}</span>
+                    <input type="text" name="address" ng-model="myinfo.address"
+                        placeholder="{{ 'ADDRESS_PH' | translate }}" 
+                        class="form-control"
+                        ng-class="{requiredControl:frm_farmer.address.$dirty && frm_farmer.address.$invalid}" 
+                        ng-required="true",
+                        ng-minlength="6",
+                        ng-maxlength="100" />
+                </label>
+                <div ng-messages="frm_farmer.address.$error" role="alert" ng-if="frm_farmer.address.$dirty">
+                    <div class="assertive" ng-message="required">Address is required.</div>
+                    <div class="assertive" ng-message="minlength">Length should be smaller than or equal to 6.</div>
+                    <div class="assertive" ng-message="maxlength">Length should be greater than or equal to 100.</div>
+                </div>
+
+
+
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">{{ 'phone' | translate }}</span>
+                    <input type="text" name="phonenumber" ng-model="myinfo.phone"
+                        ui-mask="999-999-9999"
+                        placeholder="{{ 'MOBILE_NUMBER' | translate }}" 
+                        ui-mask-placeholder 
+                        ui-mask-placeholder-char="_" 
+                        class="form-control" 
+                        ng-class="{requiredControl:frm_farmer.phonenumber.$dirty && frm_farmer.phonenumber.$invalid}" 
+                        ng-required="true"  
+                        ui-options="{clearOnBlur:false}" />
+                </label>
+                <div ng-messages="frm_farmer.phonenumber.$error" role="alert" ng-if="frm_farmer.phonenumber.$dirty">
+                    <div class="assertive" ng-message="required">Phone is required.</div>
+                    <div class="assertive" ng-message="mask">Length should be 10.</div>
+                </div>
+
+
+                <label class="item-floating-label">
+                    <div class="my-custom-label">{{ 'PHONE_TYPE' | translate }}</div>
+                    
+                    <ion-radio name="phonetype" ng-model="myinfo.phone_type" ng-value="'feature'" ng-required="true">{{ 'FEATURE' | translate }}</ion-radio>
+                    <ion-radio name="phonetype" ng-model="myinfo.phone_type" ng-value="'smart_phone'" ng-required="true">{{ 'SMART_PHONE' | translate }}</ion-radio>
+                </label>
+                <div ng-messages="frm_farmer.phonetype.$error" role="alert" ng-if="frm_farmer.phonetype.$dirty">
+                    <div class="assertive" ng-message="required">Phone type is required.</div>
+                </div>
+
+
+                <label class="item checkbox" >
+                    <div class="input-label">
+                      Two way SMS
+                    </div>
+                   <input type="checkbox"  name="two_way_sms" ng-model="myinfo.two_way_sms" ng-init="farmer.two_way_sms=0">
+                </label>
+
+
+                <!-- <input type="hidden" name="two_way_sms" ng-model="myinfo.two_way_sms" ng-init="farmer.two_way_sms=0"> -->                
+                <input type="hidden" name="lang" ng-model="myinfo.lang" ng-init="farmer.lang='en'"> 
+
+                <button type="submit" ng-disabled=" frm_farmer.adhar_no.$invalid    ||
+                                                    frm_farmer.farmer_name.$invalid ||
+                                                    frm_farmer.gender.$invalid     || 
+                                                    frm_farmer.address.$invalid     || 
+                                                    frm_farmer.phonenumber.$invalid || 
+                                                    frm_farmer.phonetype.$invalid "       class="button button-block button-calm ink" >
+                    {{ 'Save' | translate }}
+                </button>
+
+            </form>
+
+
+        </div>
+        </div>
+    </ion-content>
+</ion-view>
+

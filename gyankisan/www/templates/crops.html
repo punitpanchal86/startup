@@ -1,0 +1,25 @@
+<style type="text/css">
+.tabs-positive > .tabs, .tabs.tabs-positive{
+  background:#e4931b !important;
+  border-color: #e4931b !important;
+}
+</style>
+<ion-view view-title="">
+    <ion-nav-title>{{ 'MERY' | translate }} {{ 'CROPS' | translate }}</ion-nav-title>
+    <ion-tabs class="tabs-positive tabs-top">  
+      
+        <ion-tab title="Crops List"  href="#/app/crops/cropList">
+          <!-- <ion-nav-view name="registerfarm-tab"></ion-nav-view> -->
+        </ion-tab>
+
+        <ion-tab title="Shortlist"  href="#/app/crops/shortList">
+          <!-- <ion-nav-view name="registermap-tab"></ion-nav-view> -->
+        </ion-tab>
+        <ion-tab title="Growlist"  href="#/app/crops/growList">
+          <!-- <ion-nav-view name="registermap-tab"></ion-nav-view> -->
+        </ion-tab>
+  </ion-tabs>
+  <ui-view name="fcrops-page"></ui-view>
+     
+</ion-view>
+

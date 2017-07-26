@@ -1,0 +1,101 @@
+<style type="text/css">
+
+.red1{
+background:#f00;
+height: 100%;
+}
+
+.yellow1{
+background:#ff0;
+height: 100%;
+}
+
+.green1{
+background:#0F0;	
+height: 100%;
+}
+
+.slidebox1{
+	height: 200px;
+}
+
+.atag{
+	text-decoration: none;
+	color:#888;
+}
+
+img{
+	max-width: 100%;
+}
+
+.green2{
+background: #406325;
+}
+
+.cls_fp
+{
+	text-decoration: none;
+	color:#406325;
+}
+
+.orange2{
+border-color:#e4941b !important;
+background:#f9a11c !important;
+}
+	
+</style>
+<ion-view view-title="">
+	
+	<ion-nav-bar class="bar-assertive">
+		<ion-nav-back-button class="button-clear">
+		    <i class="ion-arrow-left-c"></i> 
+		</ion-nav-back-button>
+	</ion-nav-bar>
+	<ion-nav-title>{{ 'FORGOTTEN_PASSWORD' | translate }}</ion-nav-title>
+    <ion-content>
+		<div class="card">
+		  <div class="item item-text-wrap">
+		    <div class="list">
+                <form name="frm_forgetPin" ng-submit="sendPhone(phonenumber)" ng-if="isStep1">
+
+	                <label class="item item-input item-floating-label">
+	                    <span class="input-label">{{ 'MOBILE_NUMBER' | translate }}</span>
+	                    <input type="text" name="phonenumber" ng-model="phonenumber" ui-mask="999-999-9999" placeholder="10 {{ 'DIGIT' | translate }} {{ 'MOBILE_NUMBER' | translate }}" ui-mask-placeholder ui-mask-placeholder-char="_" class="form-control" ng-class="{requiredControl:frm_forgetPin.phonenumber.$dirty && frm_forgetPin.phonenumber.$invalid}" ng-required="true"  ui-options="{clearOnBlur:false}" />	
+	                </label>
+	                <div ng-messages="frm_forgetPin.phonenumber.$error" role="alert" ng-if="frm_forgetPin.phonenumber.$dirty">
+    					<div class="assertive" ng-message="required">Phone is required.</div>
+    					<div class="assertive" ng-message="mask">Length should be 10.</div>
+	      			</div>
+
+	                <button type="submit" ng-disabled="frm_forgetPin.phonenumber.$invalid"  class="button button-block button-calm ink">
+	                    Submit
+	                </button>
+	            </form>
+
+
+
+	            <form name="frm_Otp" ng-submit="sendOtp(otp)" ng-if="!isStep1">
+
+	                <label class="item item-input item-floating-label">
+	                    <span class="input-label">{{ 'OTP' | translate }}</span>
+	                    <input type="text" name="otp" ng-model="otp" ui-mask="9  9  9  9  9  9" placeholder="6 {{ 'DIGIT' | translate }} {{ 'OTP' | translate }}" ui-mask-placeholder ui-mask-placeholder-char="_" class="form-control" ng-class="{requiredControl:frm_Otp.otp.$dirty && frm_Otp.otp.$invalid}" ng-required="true"  ui-options="{clearOnBlur:false}" />
+	                </label>
+	                
+	                <div ng-messages="frm_Otp.otp.$error" role="alert" ng-if="frm_Otp.otp.$dirty">
+    					<div class="assertive" ng-message="required">OTP is required.</div>
+  					</div> 
+
+	                <button type="submit" ng-disabled="frm_Otp.otp.$invalid" class="button button-block button-calm ink">
+	                    Submit
+	                </button>
+	            </form>
+
+
+            </div>
+		  </div>
+		</div>
+
+
+
+    </ion-content>
+</ion-view>    

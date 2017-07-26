@@ -1,0 +1,118 @@
+<style type="text/css">
+
+.red1{
+background:#f00;
+height: 100%;
+}
+
+.yellow1{
+background:#ff0;
+height: 100%;
+}
+
+.green1{
+background:#0F0;	
+}
+
+.slidebox1{
+	height: 220px;
+}
+
+.atag{
+	text-decoration: none;
+	color:#888;
+}
+
+img{
+	max-width: 100%;
+}
+
+.green2{
+background: #406325;
+}
+
+.cls_fp
+{
+	text-decoration: none;
+	color:#406325;
+}
+
+.orange2{
+border-color:#e4941b !important;
+background:#f9a11c !important;
+}
+	
+</style>
+<ion-view view-title="Login">
+	<ion-content>
+		<ion-slide-box auto-play="true" does-continue="true" slide-interval="1750" on-slide-changed="slideHasChanged($index)" class="slidebox1">
+		  <ion-slide>
+		    <div class="box blue text-center green2">
+		    	<img src="img/Gyan-kisan-opening-new-01.jpg">
+		    </div>
+		  </ion-slide>
+		  <ion-slide>
+		    <div class="box yellow text-center green2">
+		    	<img src="img/Gyan-kisan-opening-new-02.jpg">
+		    </div>
+		  </ion-slide>
+		  <ion-slide>
+		    <div class="box pink text-center green2">
+		    	<img src="img/Gyan-kisan-opening-new-03.jpg">
+		    </div>
+		  </ion-slide>
+		</ion-slide-box>
+
+		<!-- <div class="text-center green2">
+			<img src="img/gklogo_w.png">
+		</div> -->
+		<div class="card">
+		  <div class="item item-text-wrap">
+		    <!-- Forms -->
+          	<div class="text-center"> 
+          		<a class="atag" ng-click="changeLanguage('en')" translate="BUTTON_LANG_EN"></a> . 
+           		<a class="atag" ng-click="changeLanguage('hi')" translate="BUTTON_LANG_HI"></a> .
+           		<a class="atag" ng-click="changeLanguage('te')" translate="BUTTON_LANG_TE"></a>
+           	</div>
+            <div class="list">
+                
+                <form name="frm_Login" ng-submit="farmLogin(user)">
+		                <label class="item item-input item-floating-label">
+		                    <span class="input-label">{{ 'MOBILE_NUMBER' | translate }}</span>
+		                    <input type="text" name="phonenumber" ng-model="user.phonenumber" ui-mask="999-999-9999" placeholder="10 {{ 'DIGIT' | translate }} {{ 'MOBILE_NUMBER' | translate }}" ui-mask-placeholder ui-mask-placeholder-char="_" class="form-control" ng-class="{requiredControl:frm_Login.phonenumber.$dirty && frm_Login.phonenumber.$invalid}" ng-required="true"  ui-options="{clearOnBlur:false}" />	
+		                </label>
+		                <div ng-messages="frm_Login.phonenumber.$error" role="alert" ng-if="frm_Login.phonenumber.$dirty">
+        					<div class="assertive" ng-message="required">{{'MOBILE_NUMBER' | translate}} {{'REQUIRED' | translate}}</div>
+        					<div class="assertive" ng-message="mask">{{'LENGTH' | translate}} 10.</div>
+      					</div>
+      					<label class="item item-input item-floating-label">
+		                    <span class="input-label">{{ 'PIN' | translate }}</span>
+		                    <input type="text" name="pin" ng-model="user.pinnumber" ui-mask="9	9	9	9" placeholder="4 {{ 'DIGIT' | translate }} {{ 'PIN' | translate }}" ui-mask-placeholder ui-mask-placeholder-char="_" class="form-control" ng-class="{requiredControl:frm_Login.pin.$dirty && frm_Login.pin.$invalid}" ng-required="true"  ui-options="{clearOnBlur:false}" />
+		                </label>
+		                
+		                <div ng-messages="frm_Login.pin.$error" role="alert" ng-if="frm_Login.pin.$dirty">
+        					<div class="assertive" ng-message="required">{{'PIN' | translate}} {{'REQUIRED' | translate}}</div>
+        					<div class="assertive" ng-message="mask">{{'LENGTH' | translate}} 4.</div>
+      					</div> 
+		                
+		                <button type="submit" ng-disabled="frm_Login.phonenumber.$invalid ||
+ frm_Login.pin.$invalid" class="button button-block button-calm ink" >
+		                    {{ "FARMER_LOGIN" | translate }}
+		                </button>
+               </form> 
+            </div>
+            <div class="text-center"> 
+          		<a class="cls_fp" href="#/forgetpin">{{ 'FORGOTTEN_PASSWORD' | translate }}</a>
+           	</div>
+           	<div class="text-center"> 
+           		<a class="button button-block button-calm orange2 ink" href="#/app/guest" >
+                    {{ 'GUEST' | translate }}
+                </a>
+           	</div>
+		  </div>
+		</div>
+
+
+
+    </ion-content>
+</ion-view>    

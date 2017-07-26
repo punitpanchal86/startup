@@ -1,0 +1,31 @@
+<style type="text/css">
+.green3{
+  color:#659048 !important;
+  font-size:18px !important;
+}	
+
+h3{
+color:#406325;
+line-height: 20px;
+}
+</style>
+<ion-view view-title="">
+	<ion-content style="padding-top:50px;">
+    	<h4 class="padding-left padding-right green3">
+        	Farmer Name : {{farm.name}}<br>
+        	Agro Zone :  {{crop_details.AgroZone}}	
+    	</h4>
+
+    	<h3 class="padding"> Select Crops</h3>
+    	<div class="list">
+    		<div class="card" ng-repeat="(key, value) in crop_details.crops">
+    		  <div class="item item-text-wrap" >
+    		    {{key}}
+    		  </div>
+    		</div>
+    		
+    	</div> 
+    </ion-content>
+ </ion-view>
+ 
+ 

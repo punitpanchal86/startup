@@ -1,0 +1,215 @@
+
+<ion-view view-title="">
+  	<ion-content style="padding-top:50px;">
+		<form name="frm_Farm" ng-submit="farmRegister(farm)">
+		<div class="card">
+		  <div class="item">
+		  		 <label class="item item-input item-floating-label">
+	                <span class="input-label">{{ 'Farm Name' | translate }}</span>
+	                <input type="text" name="farmname" ng-model="farm.name"
+	                    placeholder="{{ 'Name of the Farm' | translate }}" 
+	                    class="form-control"
+	                    ng-class="{requiredControl:frm_Farm.farmname.$dirty && frm_Farm.farmname.$invalid}" 
+	                    ng-required="true",
+	                    ng-minlength="3",
+	                    ng-maxlength="30"
+
+	                    />	
+	            </label>
+	            <div ng-messages="frm_Farm.farmname.$error" role="alert" ng-if="frm_Farm.farmname.$dirty">
+					<div class="assertive" ng-message="required">Farm Name is required.</div>
+					<div class="assertive" ng-message="minlength">Length should be greater than 6.</div>
+					<div class="assertive" ng-message="maxlength">Length should be smaller than 30.</div>
+
+				</div>
+					
+				<label class="item item-input item-floating-label">
+	                <span class="input-label">{{ 'Extent of Farm' | translate }}</span>
+	               
+	                <div class="row no-padding">
+							<div class="col col-50 no-padding">
+		                    <input type="Number" name="extent" ng-model="farm.extent"
+		                        placeholder="{{ 'Extent of Farm' | translate }}" 
+		                        class="form-control"
+		                        ng-class="{requiredControl:frm_Farm.extent.$dirty && frm_Farm.extent.$invalid}" 
+		                        ng-required="true",
+		                        ng-minlength="1",
+		                        ng-maxlength="4"
+							/>
+						</div>
+						<div class="col col-50 text-center">
+							<label class="item item-select">
+							<select style="max-width:100%;" name="extent_type" ng-model="farm.extent_type">
+								<option selected value="">Select Extent</option>
+								<option value="acres">Acres</option>
+								<option value="hectare">Hectare</option>
+							</select>
+						</label>
+						</div>
+					</div>		
+	            </label>
+			    <div ng-messages="frm_Farm.extent.$error" role="alert" ng-if="frm_Farm.extent.$dirty">
+					<div class="assertive" ng-message="required">Extent is required.</div>
+					<div class="assertive" ng-message="minlength">Length should be greater than 1.</div>
+					<div class="assertive" ng-message="maxlength">Length should be smaller than 4.</div>
+
+				</div>
+				
+				<label class="item item-input item-select">
+					<div class="input-label">
+					  Select State
+					</div>
+					<select name="state" ng-change="get_district(farm.state)" ng-model="farm.state" ng-options="state for state in states" ng-required="true"></select>
+				</label>
+
+
+				<label class="item item-input item-select">
+					<div class="input-label">
+					  Select District
+					</div>
+					<select name="district" ng-change="get_taluka(farm.district)" ng-model="farm.district" ng-options="dist for dist in districts" ng-required="true"></select>
+				</label>
+
+
+				<label class="item item-input item-select">
+					<div class="input-label">
+					  Select Taluka
+					</div>
+					<select name="taluka" ng-change="get_village(farm.district, farm.taluka)" ng-model="farm.taluka" ng-options="taluka for taluka in talukas" ng-required="true"></select>
+				</label>				
+
+				<label class="item item-input item-select">
+					<div class="input-label">
+					  Select Village
+					</div>
+					<select name="village" ng-model="farm.village" ng-options="village for village in villages" ng-required="true"></select>
+				</label>
+
+				<label class="item item-input item-floating-label">
+	                <span class="input-label">{{ 'Survey Number' | translate }}</span>
+	                <input type="text" name="survey_number" ng-model="farm.survey_number"
+	                    placeholder="{{ 'Survey Number' | translate }}" 
+	                    class="form-control"
+	                    ng-class="{requiredControl:frm_Farm.survey_number.$dirty && frm_Farm.survey_number.$invalid}" 
+	                    ng-required="true",
+	                    ng-minlength="1",
+	                    ng-maxlength="4"
+
+	                    />	
+	            </label>
+	            <div ng-messages="frm_Farm.survey_number.$error" role="alert" ng-if="frm_Farm.survey_number.$dirty">
+					<div class="assertive" ng-message="required">Survey Number is required.</div>
+					<div class="assertive" ng-message="minlength">Length should be greater than 1.</div>
+					<div class="assertive" ng-message="maxlength">Length should be smaller than 4.</div>
+				</div>
+
+
+				<label class="item item-input item-floating-label">
+	                <span class="input-label">{{ 'Bits' | translate }}</span>
+	                <input type="text" name="bits" ng-model="farm.bits"
+	                    placeholder="{{ 'Bits' | translate }}" 
+	                    class="form-control"
+	                    ng-class="{frm_Farm.bits.$dirty && frm_Farm.bits.$invalid}"
+	                    ng-minlength="1",
+	                    ng-maxlength="7"
+	                    />	
+	            </label>
+	            <div ng-messages="frm_Farm.bits.$error" role="alert" ng-if="frm_Farm.bits.$dirty">
+					<div class="assertive" ng-message="minlength">Length should be greater than 1.</div>
+					<div class="assertive" ng-message="maxlength">Length should be smaller than 7.</div>
+				</div>
+
+
+				<label class="item item-input item-floating-label">
+	                <span class="input-label">{{ 'pH' | translate }}</span>
+	                <input type="Number" name="ph" ng-model="farm.ph"
+	                    placeholder="{{ 'pH' | translate }}" 
+	                    class="form-control"
+	                    ng-class="{frm_Farm.ph.$dirty && frm_Farm.ph.$invalid}"
+	                    ng-minlength="1",
+	                    ng-maxlength="7"
+	                    />	
+	            </label>
+	            <div ng-messages="frm_Farm.ph.$error" role="alert" ng-if="frm_Farm.ph.$dirty">
+					<div class="assertive" ng-message="minlength">Length should be greater than 1.</div>
+					<div class="assertive" ng-message="maxlength">Length should be smaller than 7.</div>
+				</div>
+
+				<label class="item item-input item-floating-label">
+	                <span class="input-label">{{ 'Soil test' | translate }}</span>
+	                <input type="Number" name="soil_test" ng-model="farm.soil_test"
+	                    placeholder="{{ 'Soil test' | translate }}" 
+	                    class="form-control"
+	                    ng-class="{frm_Farm.soil_test.$dirty && frm_Farm.soil_test.$invalid}"
+	                    ng-minlength="1",
+	                    ng-maxlength="50"
+	                    />	
+	            </label>
+	            <div ng-messages="frm_Farm.soil_test.$error" role="alert" ng-if="frm_Farm.soil_test.$dirty">
+					<div class="assertive" ng-message="minlength">Length should be greater than 1.</div>
+					<div class="assertive" ng-message="maxlength">Length should be smaller than 50.</div>
+				</div>
+
+				<label class="item item-input item-select">
+					<div class="input-label">
+					  {{ 'Select Soil type' | translate }}
+					</div>
+					<select style="max-width:100%;" name="soil_type" ng-model="farm.soil_type">
+						<option value="" disabled selected> Select here</option>
+						<option value="Alluvial Soil">Alluvial Soil</option>
+						<option value="Black Soil">Black Soil</option>
+						<option value="Red Soil">Red Soil</option>
+						<option value="Mountain Soil">Mountain Soil</option>
+						<option value="Peat">Peat</option>
+						<option value="Laterite Soil">Laterite Soil</option>
+						<option value="Desert Soil">Desert Soil</option>
+					</select>
+				</label>
+
+
+				<label class="item item-input item-select">
+					<div class="input-label">
+					  {{ 'Select Water supply' | translate }}
+					</div>
+					<select style="max-width:100%;" name="water_supply" ng-model="farm.water_supply">
+						<option value="" disabled selected> Select here</option>
+					</select>
+				</label>
+
+				<label class="item item-input item-floating-label">
+	                <span class="input-label">{{ 'Micro nutrients' | translate }}</span>
+	                <input type="text" name="micro_nutrients" ng-model="farm.micro_nutrients"
+	                    placeholder="{{ 'Micro nutrients' | translate }}" 
+	                    class="form-control"
+	                    ng-class="{frm_Farm.micro_nutrients.$dirty && frm_Farm.micro_nutrients.$invalid}"
+	                    ng-minlength="1",
+	                    ng-maxlength="50"
+	                    />	
+	            </label>
+	            <div ng-messages="frm_Farm.micro_nutrients.$error" role="alert" ng-if="frm_Farm.micro_nutrients.$dirty">
+					<div class="assertive" ng-message="minlength">Length should be greater than 1.</div>
+					<div class="assertive" ng-message="maxlength">Length should be smaller than 50.</div>
+				</div>
+
+				<h2 style="text-align: center;" ng-if="agrozone">AgroZone : {{agrozone}}</h2>
+
+
+	           	<button type="submit" ng-disabled="frm_Farm.farmname.$invalid ||
+													frm_Farm.extent.$invalid  ||
+													frm_Farm.state.$invalid ||
+													frm_Farm.district.$invalid ||
+													frm_Farm.taluka.$invalid ||
+													frm_Farm.village.$invalid ||
+													frm_Farm.survey_number.$invalid ||
+													frm_Farm.bits.$invalid ||
+													frm_Farm.ph.$invalid 
+													" class="button button-full green2" style="margin-top:0px" >
+	                {{ 'Save Farm' | translate }}
+	            </button>
+	            
+		   </div>
+		</div> 
+		</form>
+	</ion-content>
+ </ion-view>
+ 

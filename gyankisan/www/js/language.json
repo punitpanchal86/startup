@@ -1,0 +1,83 @@
+
+{ "en":
+		{
+	      "LANGUAGE": "English",   
+	      "MOBILE_NUMBER": "Mobile No.",
+	      "PIN": "Pin",
+	      "SUBMIT": "Login",
+	      "GUEST": "Guest Login",
+	      "FORGOTTEN_PASSWORD": "FORGOTTEN PIN?",
+	      "BUTTON_LANG_HI": "हिंदी" ,
+	      "BUTTON_LANG_EN": "English" , 
+	      "DIGIT": "Digit",
+	      "MERE": "My", 
+	      "MERA": "My",
+	      "MERY": "My",
+	      "INFORMATION": "Information",
+	      "CROPS": "Crops",
+	      "EXPENSES": "Expenses",
+	      "CALENDAR": "Calendar",
+	      "ORDER": "Order",
+	      "EXPENSE_HISTORY": "Expense History",
+	      "HOME": "Home"
+	  },
+	
+	"hi":{
+	      "LANGUAGE" : "हिंदी",  
+	      "MOBILE_NUMBER": "मोबाइल नंबर",
+	      "PIN": "पिन",
+	      "SUBMIT": "लॉग इन करें",
+	      "GUEST": "मेहमान लॉगइन करें",
+	      "FORGOTTEN_PASSWORD": "पिन भूल गए?",
+	      "BUTTON_LANG_HI": "हिंदी",
+	      "BUTTON_LANG_EN": "English", 
+	      "DIGIT": "अंक",
+	      "MERE": "मेरे", 
+	      "MERA": "मेरा",
+	      "MERY": "मेरी",
+	      "INFORMATION": "जानकारी",
+	      "CROPS": "फसल",
+	      "EXPENSES": "खर्च",
+	      "CALENDAR": "पंचांग",
+	      "ORDER": "खरीद",
+	      "EXPENSE_HISTORY": "खर्च इतिहास",
+	      "HOME": "घर"	
+	  }
+}
+
+
+
+// [
+// 	{
+// 		"Language":[
+// 			{
+// 				"LangName":"English",
+// 				"LangCode":"en",
+// 				"LangKeyword":[
+// 					{
+// 						"Mobile_Number":"Mobile No",
+// 						"Pin":"Pin",
+// 						"Submit":"Submit",
+// 						"Guest":"Guest"
+// 					}
+// 				]
+// 			},
+
+// 			{
+// 				"LangName":"हिंदी",
+// 				"LangCode":"hn",
+// 				"LangKeyword":[
+// 					{
+// 						"Mobile_Number":"मोबाइल नंबर",
+// 						"Pin":"पिन",
+// 						"Submit":"जमा करें",
+// 						"Guest":"अतिथि"
+// 					}
+// 				]
+// 			}
+// 		]
+		
+// 	}
+// ]
+
+

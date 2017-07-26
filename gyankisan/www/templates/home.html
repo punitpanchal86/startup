@@ -1,0 +1,230 @@
+<style type="text/css">
+.red1{
+background:#f00;
+height: 100%;
+}
+
+.yellow1{
+background:#ff0;
+height: 100%;
+}
+
+.green1{
+background:#0F0;	
+height: 100%;
+}
+
+.slidebox1{
+	height: 200px;
+}
+
+.atag{
+	text-decoration: none;
+	color:#888;
+}
+
+img{
+	max-width: 100%;
+}
+
+
+.cls_fp
+{
+	text-decoration: none;
+	color:#406325;
+}
+
+.grey2{
+background:#a7a9ac !important;
+}
+
+.orange2{
+background:#e4931b !important;
+}
+
+.green2{
+background:#659048 !important;
+}
+
+.green3{
+  color:#659048 !important;
+}
+
+.card img{
+ box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+ background: #fff;
+ padding:5px;
+ /*border:2px solid #fff;*/
+}
+
+h2{
+color:#fff;
+line-height: 20px;
+font-weight: bold !important;
+}
+
+
+.card .item.item-avatar{
+	min-height: 0px
+}
+
+.card {
+  
+}
+</style>
+<ion-view view-title="">
+    <ion-nav-title>{{ 'HOME' | translate }}</ion-nav-title>
+
+      <walkthrough
+            wid="Demo1"
+            walkthrough-type="transparency"
+            focus-element-selector="#focus-item1"
+            icon="single_tap"
+            main-caption="{{demoCaption1}}"
+            icon-padding-left="0"
+            icon-padding-top="0"
+            on-walkthrough-hide = "nextStep(2)"
+            force-caption-location="BOTTOM"
+            is-active="demoActive1"
+            use-button="true"
+            button-caption="Next">
+      </walkthrough>
+ 
+      <walkthrough
+            wid="Demo2"
+            walkthrough-type="transparency"
+            focus-element-selector="#focus-item2"
+            icon="single_tap"
+            main-caption="{{demoCaption2}}"
+            icon-padding-left="0"
+            icon-padding-top="0"
+            on-walkthrough-hide = "nextStep(3)"
+            force-caption-location="BOTTOM"
+            is-active="demoActive2"
+            use-button="true"
+            button-caption="Next">
+      </walkthrough>
+
+      <walkthrough
+            wid="Demo3"
+            walkthrough-type="transparency"
+            focus-element-selector="#focus-item3"
+            icon="arrow"
+            main-caption="{{demoCaption3}}"
+            icon-padding-left="10"
+            icon-padding-top="0"
+            on-walkthrough-hide = "nextStep(4)"
+            force-caption-location="BOTTOM"
+            is-active="demoActive3"
+            use-button="true"
+            button-caption="Next"
+            is-round="true">
+      </walkthrough>
+
+      <walkthrough
+            wid="Demo3"
+            walkthrough-type="transparency"
+            focus-element-selector="#focus-item3"
+            icon="arrow"
+            main-caption="{{demoCaption3}}"
+            icon-padding-left="10"
+            icon-padding-top="0"
+            on-walkthrough-hide = ""
+            force-caption-location="BOTTOM"
+            is-active="demoActive3"
+            use-button="true"
+            button-caption="Next"
+            is-round="true">
+      </walkthrough>
+
+    <ion-content>
+      <h4 class="padding-left padding-right green3" id="focus-item1">
+        {{'WELCOME_FARMER' | translate}},</h4>
+    	<div class="list">
+    		<div class="card" id="focus-item2">
+    		  <div class="item item-text-wrap grey2">
+    		   		<a class="item item-avatar" href="#/app/myinfo">
+      					<img src="img/gyan-kisan-icons-01.png">
+      					<h2>{{ 'MERY' | translate }} {{ 'INFORMATION' | translate }}</h2>
+      				</a>
+    		  </div>
+    		</div>
+
+    		<div class="card">
+    		  <div class="item item-text-wrap orange2">
+    		   		<a class="item item-avatar" href="#/app/farm">
+      					<img src="img/gyan-kisan-icons-02.png">
+      					<h2>{{ 'MERY' | translate }} {{ 'CROPS' | translate }}</h2>
+      				</a> 
+    		  </div>
+    		</div>
+
+
+    		<div class="card">
+    		  <div class="item item-text-wrap orange2">
+    		    	<a class="item item-avatar" href="#">
+      					<img src="img/gyan-kisan-icons-03.png">
+      					<h2>{{ 'MERE' | translate }} {{ 'EXPENSES' | translate }}</h2>
+      				</a>
+    		  </div>
+    		</div>
+
+    		<div class="card">
+    		  <div class="item item-text-wrap green2">
+					<a class="item item-avatar" href="#">
+						<img src="img/gyan-kisan-icons-04.png">
+						<h2>{{ 'MERA' | translate }} {{ 'CALENDAR' | translate }}</h2>
+					</a>
+    		  </div>
+    		</div>
+
+
+    		<div class="card">
+    		  <div class="item item-text-wrap green2">
+					<a class="item item-avatar" href="#">
+						<img src="img/gyan-kisan-icons-05.png">
+						<h2>{{ 'MERE' | translate }} {{ 'ORDER' | translate }}</h2>
+					</a>
+
+    		  </div>
+    		</div>
+
+    		<div class="card">
+    		  <div class="item item-text-wrap green2">
+    		  		<a class="item item-avatar" href="#">
+						<img src="img/gyan-kisan-icons-06.png">
+						<h2>{{ 'MERY' | translate }} {{ 'EXPENSE_HISTORY' | translate }}</h2>
+					</a> 
+    		  </div>
+    		</div>
+    		
+        <div class="card">
+          <div class="item item-text-wrap green2">
+              <a class="item item-avatar" href="#">
+            <img src="img/gyan-kisan-icons-03.png">
+            <h2>{{ 'MESSAGING' | translate }}</h2>
+          </a> 
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="item item-text-wrap green2">
+              <a class="item item-avatar" href="#">
+            <img src="img/gyan-kisan-icons-04.png">
+            <h2>{{ 'FPO_OFFERING' | translate }}</h2>
+          </a> 
+          </div>
+        </div>
+
+
+    		
+    		
+    		
+      		
+      		
+    	</div>
+
+    	
+
+    </ion-content>
+</ion-view>    
